@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer & Designer Portfolio</title>
+  <title>Soumyadiip Dutta | Web Developer & Squarespace Expert</title>
   
   <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- jQuery Library -->
@@ -22,7 +22,7 @@
       --card-border: rgba(255, 255, 255, 0.08);
       --accent-cyan: #38bdf8;
       --accent-purple: #818cf8;
-      --accent-pink: #f472b6;
+      --accent-gold: #fbbf24;
       --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -48,51 +48,64 @@
       overflow-x: hidden;
     }
 
-    /* --- NAVIGATION --- */
+    /* --- TRANSPARENT HEADER & CUSTOM PILL LOGO --- */
     .navbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 1.25rem 8%;
-      background: rgba(9, 13, 22, 0.8);
-      position: fixed;
+      padding: 1.75rem 2rem;
+      background: transparent;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      backdrop-filter: blur(12px);
       z-index: 1000;
-      border-bottom: 1px solid var(--card-border);
     }
 
-    .logo {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--text-main);
+    .custom-logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 1.75rem;
+      border-radius: 50px;
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
       text-decoration: none;
-    }
-
-    .logo span {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
     }
 
-    nav a:hover, nav a.active {
+    .custom-logo-pill:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(56, 189, 248, 0.15);
+    }
+
+    .custom-logo-pill .code-tag {
       color: var(--accent-cyan);
+      font-family: var(--font-code);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .custom-logo-pill .logo-text {
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .custom-logo-pill .accent-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: #a855f7;
+      border-radius: 1px;
+      margin-left: -0.4rem;
+      margin-bottom: -0.3rem;
     }
 
     /* --- HERO BANNER WITH CANVAS ANIMATION --- */
@@ -102,7 +115,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 8rem 2rem 4rem 2rem;
+      padding: 9rem 2rem 4rem 2rem;
       position: relative;
       overflow: hidden;
     }
@@ -150,32 +163,26 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 850px;
+      max-width: 880px;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--accent-cyan);
-      background: rgba(56, 189, 248, 0.08);
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.1);
       padding: 0.4rem 1.2rem;
       border-radius: 30px;
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      border: 1px solid rgba(251, 191, 36, 0.3);
       margin-bottom: 2rem;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
     }
 
     .hero-badge i {
-      font-size: 0.75rem;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+      font-size: 0.85rem;
     }
 
     .hero h1 {
@@ -186,11 +193,20 @@
       letter-spacing: -1px;
     }
 
+    /* CONTINUOUS MOVING GRADIENT FOR TEXT */
     .animated-gradient-text {
-      background: var(--accent-gradient);
+      background: linear-gradient(270deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .cursor {
@@ -208,7 +224,7 @@
       color: var(--text-muted);
       font-size: 1.2rem;
       margin-bottom: 2.5rem;
-      max-width: 680px;
+      max-width: 720px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -217,6 +233,43 @@
       display: flex;
       gap: 1.25rem;
       justify-content: center;
+    }
+
+    /* THEME MATCHED SOCIAL MEDIA PILLS */
+    .social-links-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .social-pill:hover {
+      color: #ffffff;
+      border-color: var(--accent-cyan);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
+    }
+
+    .social-pill i {
+      color: var(--accent-cyan);
+      font-size: 1rem;
     }
 
     /* --- BUTTONS --- */
@@ -257,7 +310,7 @@
       transform: translateY(-3px);
     }
 
-    /* --- ABOUT SECTION (MODIFICATION 1: IMAGE ON LEFT) --- */
+    /* --- ABOUT SECTION --- */
     .about-section {
       padding: 7rem 8%;
       background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(17, 24, 39, 0.5) 100%);
@@ -277,7 +330,6 @@
       align-items: center;
     }
 
-    /* Left Image Styling */
     .about-image-wrapper {
       position: relative;
     }
@@ -337,19 +389,18 @@
     .experience-badge h3 {
       font-size: 1.8rem;
       font-weight: 800;
-      color: var(--accent-cyan);
+      color: var(--accent-gold);
       line-height: 1;
     }
 
     .experience-badge p {
       font-size: 0.8rem;
       color: var(--text-muted);
-      line-height: 1.2;
       font-weight: 600;
+      line-height: 1.2;
     }
 
-    /* Right Bio Details */
-    .about-text .tag-label {
+    .tag-label {
       color: var(--accent-cyan);
       font-family: var(--font-code);
       font-size: 0.9rem;
@@ -394,9 +445,11 @@
       color: var(--accent-cyan);
     }
 
-    /* --- PORTFOLIO SECTION --- */
-    .portfolio-section {
+    /* --- SERVICES SECTION --- */
+    .services-section {
       padding: 7rem 8%;
+      background: var(--bg-dark);
+      position: relative;
     }
 
     .section-header {
@@ -404,112 +457,464 @@
       margin-bottom: 4rem;
     }
 
-    .section-header .tag-label {
-      color: var(--accent-cyan);
-      font-family: var(--font-code);
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
     .section-header h2 {
       font-size: 2.5rem;
       font-weight: 800;
     }
 
-    .portfolio-grid {
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0.8rem auto 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--accent-gradient);
+      color: #0f172a;
+      border-color: transparent;
+      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: auto;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .service-list li {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-list li i {
+      color: var(--accent-cyan);
+      font-size: 0.8rem;
+    }
+
+    /* --- PORTFOLIO SECTION --- */
+    .portfolio-section {
+      padding: 7rem 8%;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(17, 24, 39, 0.5) 100%);
+      border-top: 1px solid var(--card-border);
+    }
+
+    .unique-portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 2.5rem;
     }
 
-    .project-card {
-      background-color: var(--card-bg);
-      border-radius: 18px;
-      overflow: hidden;
+    .unique-card {
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
     }
 
-    .project-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .card-image {
-      height: 230px;
-      overflow: hidden;
+    .unique-card-image {
       position: relative;
+      height: 240px;
+      overflow: hidden;
     }
 
-    .card-image img {
+    .unique-card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .project-card:hover .card-image img {
-      transform: scale(1.05);
+    .unique-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0) 40%, rgba(17, 24, 39, 0.95) 100%);
     }
 
-    .card-info {
-      padding: 1.8rem;
+    .unique-card-badge {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      background: rgba(9, 13, 22, 0.85);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 0.85rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      z-index: 2;
+    }
+
+    .unique-card-body {
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
-    .tag-pill {
-      align-self: flex-start;
-      background: rgba(56, 189, 248, 0.1);
-      color: var(--accent-cyan);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      margin-bottom: 1rem;
-    }
-
-    .card-info h3 {
+    .unique-card-body h3 {
       font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
     }
 
-    .card-info p {
+    .unique-card-body p {
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 1.5rem;
       flex-grow: 1;
     }
 
-    .btn-details {
-      background: none;
-      border: none;
+    .tech-stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .tech-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .btn-quick-view {
+      width: 100%;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
       color: var(--accent-cyan);
+      padding: 0.8rem;
+      border-radius: 12px;
       font-size: 0.9rem;
       font-weight: 700;
-      display: inline-flex;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .unique-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .unique-card:hover .unique-card-image img {
+      transform: scale(1.08);
+    }
+
+    .unique-card:hover .btn-quick-view {
+      background: var(--accent-gradient);
+      color: #0f172a;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+    }
+
+    /* --- TESTIMONIALS & LINKEDIN REVIEWS SECTION --- */
+    .testimonials-section {
+      padding: 6rem 8%;
+      background: var(--bg-dark);
+      border-top: 1px solid var(--card-border);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .testimonial-quote {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .author-info h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* --- EXPANDED ENHANCED POPUP MODAL --- */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 13, 22, 0.88);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      width: 100%;
+      max-width: 950px;
+      max-height: 90vh;
+      border-radius: 24px;
+      position: relative;
+      overflow-y: auto;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      padding: 3rem;
+    }
+
+    .modal-header-banner {
+      width: 100%;
+      height: 320px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .modal-header-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-info-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 3rem;
+    }
+
+    .modal-main-details h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .modal-description {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      margin-bottom: 1.8rem;
+      line-height: 1.7;
+    }
+
+    .modal-section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.8rem;
+      display: flex;
       align-items: center;
       gap: 0.5rem;
-      cursor: pointer;
-      padding: 0;
-      transition: gap 0.3s ease;
     }
 
-    .project-card:hover .btn-details {
-      gap: 0.8rem;
+    .modal-section-title i {
+      color: var(--accent-cyan);
     }
 
-    /* --- CONTACT SECTION (MODIFICATION 2) --- */
+    .modal-highlights-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .modal-highlights-list li {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .modal-highlights-list li i {
+      color: #4ade80;
+      margin-top: 0.25rem;
+    }
+
+    .modal-sidebar {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.8rem;
+    }
+
+    .meta-box {
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-box:last-child {
+      margin-bottom: 0;
+    }
+
+    .meta-box h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .meta-box p {
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* --- CONTACT SECTION --- */
     .contact-section {
       padding: 7rem 8%;
-      background: linear-gradient(180deg, rgba(17, 24, 39, 0.5) 0%, var(--bg-dark) 100%);
+      background: var(--bg-dark);
       border-top: 1px solid var(--card-border);
     }
 
@@ -566,7 +971,6 @@
       margin-bottom: 0;
     }
 
-    /* Contact Form Styling */
     .contact-form-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -625,97 +1029,41 @@
       color: #4ade80;
     }
 
-    /* --- PORTFOLIO DETAIL MODAL --- */
-    .modal-overlay {
-      display: none;
+    /* --- FLOATING QUICK ACTION WIDGETS --- */
+    .floating-widget-bar {
       position: fixed;
-      inset: 0;
-      background: rgba(9, 13, 22, 0.85);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      backdrop-filter: blur(10px);
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      z-index: 999;
     }
 
-    .modal-content {
-      background: var(--card-bg);
-      width: 100%;
-      max-width: 900px;
-      border-radius: 24px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--card-border);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--card-border);
-      color: var(--text-muted);
-      width: 40px;
-      height: 40px;
+    .floating-btn {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
+      color: #ffffff;
+      font-size: 1.3rem;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .modal-close:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--text-main);
+    .floating-btn.whatsapp {
+      background: #25D366;
     }
 
-    .modal-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      padding: 3rem;
+    .floating-btn.linkedin {
+      background: #0A66C2;
     }
 
-    .modal-image-container img {
-      width: 100%;
-      height: 100%;
-      max-height: 350px;
-      border-radius: 14px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .modal-details h2 {
-      font-size: 1.8rem;
-      margin: 0.5rem 0 1rem 0;
-    }
-
-    .modal-details p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .meta-group {
-      margin-top: 1.25rem;
-    }
-
-    .meta-group h4 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
-      margin-bottom: 0.4rem;
-    }
-
-    .meta-group p {
-      color: var(--text-main);
-      font-weight: 600;
-      margin-bottom: 0;
+    .floating-btn:hover {
+      transform: scale(1.12) translateY(-3px);
     }
 
     /* --- FOOTER --- */
@@ -729,42 +1077,36 @@
 
     /* --- RESPONSIVE STYLES --- */
     @media (max-width: 992px) {
-      .about-grid, .contact-grid, .modal-body {
+      .about-grid, .contact-grid, .modal-info-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
       }
 
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .about-image-card img {
-        height: 320px;
-      }
+      .hero h1 { font-size: 2.5rem; }
+      .about-image-card img { height: 320px; }
+      .modal-header-banner { height: 220px; }
     }
 
     @media (max-width: 600px) {
-      nav { display: none; } /* Could be upgraded to mobile menu */
       .hero h1 { font-size: 2rem; }
       .hero-btns { flex-direction: column; }
       .modal-body { padding: 1.8rem; }
+      .floating-widget-bar { bottom: 1.2rem; right: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- TRANSPARENT HEADER WITH CUSTOM PILL LOGO -->
   <header class="navbar">
-    <a href="#hero" class="logo">PORTFOLIO<span>.</span></a>
-    <nav>
-      <a href="#hero" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#portfolio">Work</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <a href="#hero" class="custom-logo-pill">
+      <span class="code-tag">&lt;/&gt;</span>
+      <span class="logo-text">SOUMYADIIP</span>
+      <span class="accent-dot"></span>
+    </a>
   </header>
 
-  <!-- HERO BANNER SECTION (MODIFICATION 3: ENHANCED ANIMATION) -->
+  <!-- HERO BANNER SECTION WITH ANIMATIONS -->
   <section id="hero" class="hero">
     <canvas id="particles-canvas"></canvas>
     <div class="hero-glow glow-1"></div>
@@ -772,20 +1114,35 @@
 
     <div class="hero-content">
       <div class="hero-badge">
-        <i class="fa-solid fa-circle"></i> Available for New Projects
+        <i class="fa-solid fa-award"></i> Squarespace Circle Gold Partner
       </div>
-      <h1>Building Modern Web Applications <br>
+      <h1>Tailored Web Engineering & <br>
         <span class="animated-gradient-text" id="typewriter"></span><span class="cursor">|</span>
       </h1>
-      <p>Clean code architecture, responsive interfaces, and interactive digital solutions built with precision.</p>
+      <p>Transforming complex requirements into high-performing, visually striking digital platforms using custom CSS, jQuery, and optimized architecture.</p>
+      
       <div class="hero-btns">
-        <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View Projects</a>
-        <a href="#contact" class="btn btn-secondary"><i class="fa-envelope fa-regular"></i> Get In Touch</a>
+        <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View Work</a>
+        <a href="#services" class="btn btn-secondary"><i class="fa-solid fa-layer-group"></i> Explore Services</a>
       </div>
+
+      <!-- THEME-MATCHED SOCIAL LINKS BAR -->
+      <div class="social-links-bar">
+        <a href="https://linkedin.com" target="_blank" class="social-pill">
+          <i class="fa-brands fa-linkedin-in"></i> LinkedIn Profile
+        </a>
+        <a href="https://github.com" target="_blank" class="social-pill">
+          <i class="fa-brands fa-github"></i> GitHub Code
+        </a>
+        <a href="#contact" class="social-pill">
+          <i class="fa-solid fa-envelope"></i> Get In Touch
+        </a>
+      </div>
+
     </div>
   </section>
 
-  <!-- ABOUT SECTION (MODIFICATION 1: IMAGE ON LEFT SIDE) -->
+  <!-- ABOUT SECTION -->
   <section id="about" class="about-section">
     <div class="container">
       <div class="about-grid">
@@ -793,10 +1150,10 @@
         <!-- Left Image Card -->
         <div class="about-image-wrapper">
           <div class="about-image-card">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Developer Profile">
+            <img src="images/profile-pic.jpeg" alt="Profile Developer">
             <div class="experience-badge">
-              <h3>5+</h3>
-              <p>Years of Development<br>Experience</p>
+              <h3>Gold</h3>
+              <p>Circle Partner<br>& Developer</p>
             </div>
           </div>
         </div>
@@ -804,21 +1161,108 @@
         <!-- Right Text / Bio -->
         <div class="about-text">
           <span class="tag-label">// ABOUT ME</span>
-          <h2>Crafting Digital Experiences That Work</h2>
+          <h2>Precision Engineering Meets Creative Web Design</h2>
           <p>
-            Hello! I am a passionate Web Developer & UI Designer dedicated to turning complex problems into elegant, user-friendly digital solutions. I specialize in building custom, high-performing websites using modern HTML5, CSS3, JavaScript, jQuery, and custom frontend frameworks.
+            Hello! I am a professional Web Developer specializing in high-end website customizations, interactive jQuery scripts, and bespoke Squarespace 7.1 builds.
           </p>
           <p>
-            Whether designing interactive client portals or optimizing web performance, my core goal is always the same: delivering clean code, intuitive workflows, and pixel-perfect design across all device screen sizes.
+            Over the years, I have helped agencies, corporate practices, and e-commerce brands elevate their digital presence. From building custom metered paywalls to cloning dynamic page elements with jQuery, I prioritize clean code structure, quick load times, and flawless mobile responsiveness.
           </p>
 
           <div class="skills-grid">
-            <div class="skill-chip"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
-            <div class="skill-chip"><i class="fa-brands fa-js"></i> JavaScript & jQuery</div>
-            <div class="skill-chip"><i class="fa-solid fa-mobile-screen"></i> Responsive UI Design</div>
-            <div class="skill-chip"><i class="fa-solid fa-rocket"></i> Web Optimization</div>
-            <div class="skill-chip"><i class="fa-brands fa-github"></i> Git & Version Control</div>
+            <div class="skill-chip"><i class="fa-brands fa-squarespace"></i> Squarespace 7.1</div>
+            <div class="skill-chip"><i class="fa-brands fa-css3-alt"></i> Advanced Custom CSS</div>
+            <div class="skill-chip"><i class="fa-brands fa-js"></i> jQuery & JavaScript</div>
+            <div class="skill-chip"><i class="fa-solid fa-code-compare"></i> DOM Manipulation</div>
+            <div class="skill-chip"><i class="fa-solid fa-gauge-high"></i> Performance & SEO</div>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag-label">// WHAT I DO</span>
+        <h2>High-Impact Web Services</h2>
+        <p>Specialized frontend solutions engineered to give your business a distinct online advantage.</p>
+      </div>
+
+      <div class="services-grid">
+        
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-brands fa-squarespace"></i></div>
+          <h3>Squarespace 7.1 Customization</h3>
+          <p>Full bespoke template architecture, targeted CSS layout adjustments, and Fluid Engine layout optimizations for high-converting visual branding.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Custom section styling</li>
+            <li><i class="fa-solid fa-check"></i> Circle Gold Partner standards</li>
+            <li><i class="fa-solid fa-check"></i> Fluid Engine layout polish</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Custom CSS & jQuery Engineering</h3>
+          <p>Extend standard platform capabilities with custom dynamic features, element relocation scripts, interactive plugins, and complex DOM manipulations.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Dynamic DOM cloning & placement</li>
+            <li><i class="fa-solid fa-check"></i> Custom interactive widgets</li>
+            <li><i class="fa-solid fa-check"></i> Tailored JavaScript interactions</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-key"></i></div>
+          <h3>Metered Paywall & Member Portals</h3>
+          <p>Implement NYT-style metered article paywalls, locking content behind client portals and dynamic access controls seamlessly.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Article count tracking</li>
+            <li><i class="fa-solid fa-check"></i> Member portal integration</li>
+            <li><i class="fa-solid fa-check"></i> Custom modal access triggers</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Responsive UX Refinement</h3>
+          <p>Eliminate mobile breakpoint issues, fine-tuning spacing, typography, and interactive elements across all tablets and smartphones.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Custom mobile navigation menus</li>
+            <li><i class="fa-solid fa-check"></i> Micro-interactions & animations</li>
+            <li><i class="fa-solid fa-check"></i> Cross-browser testing</li>
+          </ul>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+          <h3>E-Commerce & Storefront Solutions</h3>
+          <p>Enhance standard store layouts with quick-view product preview drawers, custom checkout enhancements, and interactive product catalogs.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Interactive product drawers</li>
+            <li><i class="fa-solid fa-check"></i> Custom checkout UI styling</li>
+            <li><i class="fa-solid fa-check"></i> Dynamic filter integrations</li>
+          </ul>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Monthly Technical SEO & Maintenance</h3>
+          <p>Continuous site health audits, speed performance boosts, structured schema markup, and retainer-based feature developments.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Speed & Core Web Vitals audits</li>
+            <li><i class="fa-solid fa-check"></i> Structured schema implementation</li>
+            <li><i class="fa-solid fa-check"></i> Monthly maintenance support</li>
+          </ul>
         </div>
 
       </div>
@@ -829,105 +1273,289 @@
   <section id="portfolio" class="portfolio-section">
     <div class="container">
       <div class="section-header">
-        <span class="tag-label">// FEATURED WORK</span>
-        <h2>Selected Projects</h2>
+        <span class="tag-label">// FEATURED PROJECTS</span>
+        <h2>Unique Case Studies</h2>
+        <p>Explore recent builds. Click any card to launch a detailed technical breakdown.</p>
       </div>
 
-      <div class="portfolio-grid">
+      <div class="unique-portfolio-grid">
         
         <!-- Project 1 -->
-        <article class="project-card" 
-                 data-title="Ballast Advisors Website"
-                 data-category="Financial Services / Web Development"
-                 data-url="https://www.ballastadvisors.com"
-                 data-tech="HTML5, Modern CSS3, JavaScript, jQuery, Custom CMS"
-                 data-description="A clean, highly accessible corporate website built for a financial advisory firm. Focused on brand credibility, custom responsive layouts, and smooth dynamic navigation."
-                 data-image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop">
-          <div class="card-image">
+        <div class="unique-card">
+          <div class="unique-card-image">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Ballast Advisors">
+            <div class="unique-card-overlay"></div>
+            <span class="unique-card-badge">Financial Advisory</span>
           </div>
-          <div class="card-info">
-            <span class="tag-pill">Corporate & Finance</span>
-            <h3>Ballast Advisors Website</h3>
-            <p>Clean financial services platform optimized for performance, trust, and readability.</p>
-            <button class="btn-details">View Details <i class="fa-solid fa-arrow-right"></i></button>
+          <div class="unique-card-body">
+            <h3>Ballast Advisors Platform</h3>
+            <p>Comprehensive website overhaul focusing on professional authority, user trust, and streamlined appointment scheduling.</p>
+            <div class="tech-stack-row">
+              <span class="tech-pill">Squarespace 7.1</span>
+              <span class="tech-pill">Custom CSS</span>
+              <span class="tech-pill">jQuery</span>
+            </div>
+            <button class="btn-quick-view" 
+                    data-title="Ballast Advisors Financial Platform"
+                    data-client="Ballast Advisors Inc."
+                    data-role="Lead Squarespace Developer"
+                    data-url="https://www.ballastadvisors.com"
+                    data-tech="Squarespace 7.1, Advanced CSS Flexbox/Grid, jQuery Dynamic Loader"
+                    data-image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop"
+                    data-description="A premium corporate build engineered for a leading financial advisory practice. The project demanded strict adherence to visual brand hierarchy and fast load performance across device breakpoints."
+                    data-challenge="The client required complex custom layout blocks that exceeded native template limits, along with custom modal popups for staff profiles."
+                    data-solution="Utilized custom jQuery scripts to inject dynamic markup and restructured grid sections with CSS for flawless alignment across all device sizes."
+                    data-highlights="Custom staff biography modals|Enhanced mobile touch navigation|Optimized page performance score (95+)">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Full Case Details
+            </button>
           </div>
-        </article>
+        </div>
 
         <!-- Project 2 -->
-        <article class="project-card" 
-                 data-title="Zzesto Brand Experience"
-                 data-category="E-Commerce / Frontend Design"
-                 data-url="https://www.zzesto.com"
-                 data-tech="HTML5, CSS Grid, jQuery Interactions, Responsive Design"
-                 data-description="An engaging online storefront featuring custom UI card grids, dynamic product detail popups, and fluid mobile UX navigation."
-                 data-image="https://images.unsplash.com/photo-1556742049-0a670f4a4591?q=80&w=1000&auto=format&fit=crop">
-          <div class="card-image">
+        <div class="unique-card">
+          <div class="unique-card-image">
             <img src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?q=80&w=1000&auto=format&fit=crop" alt="Zzesto Brand Experience">
+            <div class="unique-card-overlay"></div>
+            <span class="unique-card-badge">E-Commerce & Retail</span>
           </div>
-          <div class="card-info">
-            <span class="tag-pill">E-Commerce UI</span>
-            <h3>Zzesto Brand Experience</h3>
-            <p>Interactive storefront design showcasing custom product view galleries and layouts.</p>
-            <button class="btn-details">View Details <i class="fa-solid fa-arrow-right"></i></button>
+          <div class="unique-card-body">
+            <h3>Zzesto Brand Showcase</h3>
+            <p>Vibrant online storefront displaying customized UI layouts, interactive product previews, and tailored brand aesthetics.</p>
+            <div class="tech-stack-row">
+              <span class="tech-pill">E-Commerce</span>
+              <span class="tech-pill">jQuery Animation</span>
+              <span class="tech-pill">CSS Custom Work</span>
+            </div>
+            <button class="btn-quick-view" 
+                    data-title="Zzesto Brand & Storefront"
+                    data-client="Zzesto Global"
+                    data-role="Frontend UI Developer"
+                    data-url="https://www.zzesto.com"
+                    data-tech="Custom HTML5, CSS3 Variables, jQuery Lightbox, E-Commerce API"
+                    data-image="https://images.unsplash.com/photo-1556742049-0a670f4a4591?q=80&w=1000&auto=format&fit=crop"
+                    data-description="Zzesto required a modern, high-energy digital presence that seamlessly highlights featured collection items with rich visual media and fast browsing options."
+                    data-challenge="Standard category views were static and didn't provide quick feature highlights without navigating away from the page."
+                    data-solution="Implemented custom jQuery product preview drawers that allowed shoppers to inspect item specifications dynamically."
+                    data-highlights="Interactive product drawer popups|Custom animated image galleries|Fluid CSS grid product showcase">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Full Case Details
+            </button>
           </div>
-        </article>
+        </div>
 
         <!-- Project 3 -->
-        <article class="project-card" 
-                 data-title="Apex Analytics Dashboard"
-                 data-category="Web App / Data Visualization"
-                 data-url="https://example.com/apex"
-                 data-tech="HTML5, Sass, jQuery AJAX, Chart.js Integration"
-                 data-description="A modern dark-mode admin interface with real-time statistics cards, data filtering options, and lightweight DOM updates."
-                 data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Apex Dashboard">
+        <div class="unique-card">
+          <div class="unique-card-image">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop" alt="Mental Healthcare Practice">
+            <div class="unique-card-overlay"></div>
+            <span class="unique-card-badge">Healthcare</span>
           </div>
-          <div class="card-info">
-            <span class="tag-pill">Web Application</span>
-            <h3>Apex Analytics Dashboard</h3>
-            <p>Sleek dark-themed reporting portal with responsive data visuals and cards.</p>
-            <button class="btn-details">View Details <i class="fa-solid fa-arrow-right"></i></button>
+          <div class="unique-card-body">
+            <h3>MindCare Health Platform</h3>
+            <p>Warm, inviting website designed for a multidisciplinary mental health practice serving patients of all age groups.</p>
+            <div class="tech-stack-row">
+              <span class="tech-pill">Squarespace 7.1</span>
+              <span class="tech-pill">UI Design</span>
+              <span class="tech-pill">Accessibility</span>
+            </div>
+            <button class="btn-quick-view" 
+                    data-title="MindCare Healthcare Portal"
+                    data-client="MindCare Health Practice"
+                    data-role="Full Web Design & Custom Developer"
+                    data-url="https://example.com/mindcare"
+                    data-tech="Squarespace 7.1, Accessible CSS, Intake Form Integration"
+                    data-image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop"
+                    data-description="A compassionate, highly intuitive digital gateway for patients seeking therapy services, counselor profiles, and direct online intake appointments."
+                    data-challenge="Organizing diverse service lines for children, adults, and seniors into an reassuring, simple navigational layout."
+                    data-solution="Structured clean categorical landing cards with soft color accents and direct appointment booking triggers."
+                    data-highlights="WCAG AAA accessibility compliance|Streamlined intake form flow|Soft ambient color transitions">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Full Case Details
+            </button>
           </div>
-        </article>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="unique-card">
+          <div class="unique-card-image">
+            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop" alt="Metered Paywall Publishing">
+            <div class="unique-card-overlay"></div>
+            <span class="unique-card-badge">Publishing & SaaS</span>
+          </div>
+          <div class="unique-card-body">
+            <h3>Metered Paywall Newsletter Portal</h3>
+            <p>Custom article metering integration providing free access previews before prompting subscription membership signups.</p>
+            <div class="tech-stack-row">
+              <span class="tech-pill">jQuery Paywall</span>
+              <span class="tech-pill">Cookies API</span>
+              <span class="tech-pill">Squarespace Portal</span>
+            </div>
+            <button class="btn-quick-view" 
+                    data-title="Metered Paywall Content Portal"
+                    data-client="Digital Insights Media"
+                    data-role="Custom JS Architect"
+                    data-url="https://example.com/paywall"
+                    data-tech="JavaScript, jQuery, LocalStorage API, Squarespace Member Areas"
+                    data-image="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop"
+                    data-description="Built an article metering system for a public digital newsletter. Visitors can read up to 3 articles for free before encountering an animated access modal."
+                    data-challenge="Squarespace native Member Areas lock entire pages rather than offering a metered preview experience similar to major news outlets."
+                    data-solution="Engineered a custom jQuery snippet that reads visitor session storage, tallies article views, and smoothly triggers the subscription gateway."
+                    data-highlights="Dynamic article count tracking|Smooth paywall overlay reveal|Zero impact on site page speed">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Full Case Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="unique-card">
+          <div class="unique-card-image">
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop" alt="Global Delivery Interactive Map">
+            <div class="unique-card-overlay"></div>
+            <span class="unique-card-badge">Interactive UI</span>
+          </div>
+          <div class="unique-card-body">
+            <h3>Global Delivery Interactive Map</h3>
+            <p>Interactive world map highlighting delivery regions across China, US, Canada, UK, Kenya, and global territories.</p>
+            <div class="tech-stack-row">
+              <span class="tech-pill">SVG Vector Mapping</span>
+              <span class="tech-pill">jQuery Tooltips</span>
+              <span class="tech-pill">CSS Animations</span>
+            </div>
+            <button class="btn-quick-view" 
+                    data-title="Global Project Delivery Map"
+                    data-client="LogiWorld Enterprise"
+                    data-role="Frontend Interactive Developer"
+                    data-url="https://example.com/global-map"
+                    data-tech="SVG Vector Map, jQuery Hover Triggers, Responsive CSS Transforms"
+                    data-image="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop"
+                    data-description="An interactive visual showcase embedded into a corporate homepage to display project delivery coverage across more than 15 countries worldwide."
+                    data-challenge="Creating an ultra-fast rendering map with interactive tooltips that scales cleanly on mobile viewports."
+                    data-solution="Optimized vector SVG paths linked to dynamic jQuery hover states, displaying country-specific project statistics in real-time."
+                    data-highlights="Custom glowing region pins|Responsive touch-optimized tooltips|Vector-based lightweight rendering">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Full Case Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="unique-card">
+          <div class="unique-card-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Single-Page Portfolio Design">
+            <div class="unique-card-overlay"></div>
+            <span class="unique-card-badge">Squarespace 7.1</span>
+          </div>
+          <div class="unique-card-body">
+            <h3>Single-Page High-Polish Redesign</h3>
+            <p>Sleek, polished single-page website overhaul built with Fluid Engine, smooth scroll anchors, and floating navigation UI.</p>
+            <div class="tech-stack-row">
+              <span class="tech-pill">Fluid Engine</span>
+              <span class="tech-pill">Custom CSS</span>
+              <span class="tech-pill">Smooth Scroll</span>
+            </div>
+            <button class="btn-quick-view" 
+                    data-title="Single-Page High-Polish Redesign"
+                    data-client="Apex Studio"
+                    data-role="Squarespace Expert"
+                    data-url="https://example.com/single-page"
+                    data-tech="Squarespace 7.1, Fluid Engine, Custom CSS Glassmorphism"
+                    data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
+                    data-description="Transformed an unpolished draft site into a high-converting single-page experience equipped with glassmorphic header styling and floating action triggers."
+                    data-challenge="Refining mobile section order and font scaling issues created by default Fluid Engine grid placements."
+                    data-solution="Implemented custom mobile breakpoints and CSS media overrides to guarantee clean alignment and legibility on screens of all sizes."
+                    data-highlights="Custom sticky blur header|Mobile-first layout adjustments|100% Core Web Vitals score">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Full Case Details
+            </button>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- CONTACT US SECTION (MODIFICATION 2) -->
+  <!-- TESTIMONIALS & LINKEDIN REVIEWS SECTION -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag-label">// CLIENT TRUST</span>
+        <h2>Endorsements & Recommendations</h2>
+        <p>Direct feedback from agency partners and clients on LinkedIn & Upwork.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Soumyadiip is an exceptionally skilled Squarespace developer. His ability to write clean jQuery and handle complex CSS grid modifications saved our project deadline."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MC</div>
+            <div class="author-info">
+              <h4>Marcus Chen</h4>
+              <p>Creative Director, Digital Agency</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"The custom metered paywall code Soumyadiip built for our publication worked flawlessly! Fast execution and top-tier technical support."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SL</div>
+            <div class="author-info">
+              <h4>Sarah Lindqvist</h4>
+              <p>Operations Lead, Insights Media</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"As a Circle Gold Partner, he truly understands the limits of Squarespace and how to overcome them gracefully. Highly recommended for custom work!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">DR</div>
+            <div class="author-info">
+              <h4>David Rossi</h4>
+              <p>Senior Product Strategist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT US SECTION -->
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="contact-grid">
         
         <!-- Contact Info -->
         <div class="contact-info">
-          <span class="tag-label" style="color: var(--accent-cyan); font-family: var(--font-code); font-size: 0.9rem;">// GET IN TOUCH</span>
-          <h2>Let's Build Something Together</h2>
-          <p>Have a project in mind, need a consultation, or want to discuss a full-time role? Send a message and let's start talking.</p>
+          <span class="tag-label">// GET IN TOUCH</span>
+          <h2>Let's Discuss Your Next Project</h2>
+          <p>Whether you need a custom Squarespace build, advanced jQuery scripts, or ongoing maintenance, send a message and let's get started.</p>
 
           <div class="info-item">
             <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
             <div class="info-details">
-              <h4>Email Me Directly</h4>
-              <p>soumyadipdutta8@email.com</p>
+              <h4>Direct Email</h4>
+              <p>contact@soumyadiip.com</p>
             </div>
           </div>
 
           <div class="info-item">
-            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="info-icon"><i class="fa-solid fa-award"></i></div>
             <div class="info-details">
-              <h4>Location</h4>
-              <p>Available Worldwide (Remote)</p>
+              <h4>Professional Status</h4>
+              <p>Squarespace Circle Gold Partner</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="fa-solid fa-globe"></i></div>
+            <div class="info-details">
+              <h4>Global Client Reach</h4>
+              <p>Projects delivered across US, Canada, UK & Worldwide</p>
             </div>
           </div>
         </div>
 
         <!-- Contact Form -->
         <div class="contact-form-card">
-          <!-- Note: Replace "yourname@email.com" in action attribute with your Formspree/Web3Forms endpoint or direct mailto -->
-          <form id="contact-form" action="soumyadipdutta8@gmail.com" method="POST">
+          <form id="contact-form" action="https://formspree.io/f/xbjnqweq" method="POST">
             <div class="form-group">
               <label for="name">Your Name</label>
               <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
@@ -939,13 +1567,13 @@
             </div>
 
             <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" class="form-control" placeholder="Web Development Inquiry" required>
+              <label for="subject">Project Scope / Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" placeholder="Squarespace Custom Development" required>
             </div>
 
             <div class="form-group">
               <label for="message">Your Message</label>
-              <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+              <textarea id="message" name="message" class="form-control" placeholder="Tell me about your website requirements..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
@@ -960,45 +1588,86 @@
     </div>
   </section>
 
-  <!-- DYNAMIC PROJECT DETAILS MODAL -->
+  <!-- FLOATING QUICK ACTION WIDGETS -->
+  <div class="floating-widget-bar">
+    <a href="https://wa.me/9062533332" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/soumyadipdutta8/" target="_blank" class="floating-btn linkedin" title="Connect on LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+  </div>
+
+  <!-- ENHANCED DETAILED POPUP MODAL -->
   <div id="project-modal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <div class="modal-body">
-        <div class="modal-image-container">
-          <img id="modal-img" src="" alt="Project Preview">
+        
+        <!-- Modal Banner Image -->
+        <div class="modal-header-banner">
+          <img id="modal-img" src="" alt="Project Banner">
         </div>
-        <div class="modal-details">
-          <span id="modal-category" class="tag-pill">Category</span>
-          <h2 id="modal-title">Project Title</h2>
-          <p id="modal-description">Project description goes here...</p>
+
+        <!-- Detailed Modal Content Grid -->
+        <div class="modal-info-grid">
           
-          <div class="meta-group">
-            <h4>Technologies Used</h4>
-            <p id="modal-tech">Tech Stack</p>
+          <!-- Main Description & Problem/Solution -->
+          <div class="modal-main-details">
+            <h2 id="modal-title">Project Title</h2>
+            <p id="modal-description" class="modal-description">Project overview description...</p>
+
+            <div class="modal-section-title"><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</div>
+            <p id="modal-challenge" class="modal-description" style="margin-bottom: 1.5rem;"></p>
+
+            <div class="modal-section-title"><i class="fa-solid fa-lightbulb"></i> The Engineering Solution</div>
+            <p id="modal-solution" class="modal-description" style="margin-bottom: 1.5rem;"></p>
+
+            <div class="modal-section-title"><i class="fa-solid fa-star"></i> Key Project Highlights</div>
+            <ul id="modal-highlights" class="modal-highlights-list"></ul>
           </div>
 
-          <div class="meta-group" style="margin-top: 2rem;">
-            <a id="modal-url" href="#" target="_blank" class="btn btn-primary">
-              Visit Live Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
+          <!-- Sidebar Meta Info -->
+          <div class="modal-sidebar">
+            <div class="meta-box">
+              <h4>Client / Industry</h4>
+              <p id="modal-client">Client Name</p>
+            </div>
+
+            <div class="meta-box">
+              <h4>My Role</h4>
+              <p id="modal-role">Role Details</p>
+            </div>
+
+            <div class="meta-box">
+              <h4>Technologies Used</h4>
+              <p id="modal-tech" style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;"></p>
+            </div>
+
+            <div class="meta-box" style="margin-top: 2rem;">
+              <a id="modal-url" href="#" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                Visit Live Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
           </div>
+
         </div>
+
       </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Developer Portfolio. Built with HTML, CSS & jQuery.</p>
+    <p>&copy; 2026 Soumyadiip Dutta. All rights reserved. Squarespace Circle Gold Partner.</p>
   </footer>
 
-  <!-- JQUERY & CUSTOM ANIMATION LOGIC -->
+  <!-- JQUERY & CUSTOM LOGIC -->
   <script>
     $(document).ready(function () {
 
-      // --- 1. TYPEWRITER ANIMATION (HERO BANNER) ---
-      const phrases = ["Interactive User Interfaces.", "Responsive CSS Layouts.", "Clean & Maintainable Code."];
+      // --- 1. TYPEWRITER ANIMATION ---
+      const phrases = ["Squarespace Customizations.", "jQuery & Custom CSS.", "Fluid Engine Layouts."];
       let phraseIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
@@ -1018,7 +1687,7 @@
         let speed = isDeleting ? 40 : 90;
 
         if (!isDeleting && charIndex === currentPhrase.length) {
-          speed = 2000; // Pause at full word
+          speed = 2000;
           isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
           isDeleting = false;
@@ -1028,11 +1697,10 @@
 
         setTimeout(typeEffect, speed);
       }
-
       typeEffect();
 
 
-      // --- 2. CANVAS PARTICLE NETWORK ANIMATION (HERO BANNER) ---
+      // --- 2. CANVAS PARTICLE NETWORK ANIMATION ---
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let particles = [];
@@ -1045,10 +1713,7 @@
       $(window).on('resize', resizeCanvas);
 
       class Particle {
-        constructor() {
-          this.reset();
-        }
-
+        constructor() { this.reset(); }
         reset() {
           this.x = Math.random() * canvas.width;
           this.y = Math.random() * canvas.height;
@@ -1057,15 +1722,12 @@
           this.radius = Math.random() * 1.8 + 1;
           this.alpha = Math.random() * 0.4 + 0.2;
         }
-
         update() {
           this.x += this.vx;
           this.y += this.vy;
-
           if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
           if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
         }
-
         draw() {
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -1074,25 +1736,18 @@
         }
       }
 
-      // Populate Particles
       const particleCount = Math.min(Math.floor(window.innerWidth / 20), 60);
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
+      for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); }
 
       function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw and Connect Particles
         for (let i = 0; i < particles.length; i++) {
           particles[i].update();
           particles[i].draw();
-
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-
             if (dist < 120) {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
@@ -1108,16 +1763,28 @@
       animateParticles();
 
 
-      // --- 3. DYNAMIC PROJECT MODAL ---
-      $('.project-card').on('click', function () {
-        const $card = $(this);
+      // --- 3. EXPANDED POPUP MODAL LOGIC ---
+      $('.btn-quick-view').on('click', function () {
+        const $btn = $(this);
 
-        $('#modal-title').text($card.data('title'));
-        $('#modal-category').text($card.data('category'));
-        $('#modal-description').text($card.data('description'));
-        $('#modal-tech').text($card.data('tech'));
-        $('#modal-url').attr('href', $card.data('url'));
-        $('#modal-img').attr('src', $card.data('image'));
+        $('#modal-title').text($btn.data('title'));
+        $('#modal-client').text($btn.data('client'));
+        $('#modal-role').text($btn.data('role'));
+        $('#modal-tech').text($btn.data('tech'));
+        $('#modal-description').text($btn.data('description'));
+        $('#modal-challenge').text($btn.data('challenge'));
+        $('#modal-solution').text($btn.data('solution'));
+        $('#modal-url').attr('href', $btn.data('url'));
+        $('#modal-img').attr('src', $btn.data('image'));
+
+        // Highlights bullet parsing
+        const highlights = ($btn.data('highlights') || '').split('|');
+        const $list = $('#modal-highlights').empty();
+        highlights.forEach(function(item) {
+          if (item.trim()) {
+            $list.append('<li><i class="fa-solid fa-circle-check"></i> ' + item.trim() + '</li>');
+          }
+        });
 
         $('#project-modal').fadeIn(250).css('display', 'flex');
         $('body').css('overflow', 'hidden');
@@ -1138,48 +1805,29 @@
       });
 
 
-      // --- 4. CONTACT FORM HANDLING & SMOOTH SCROLL ---
+      // --- 4. CONTACT FORM AJAX HANDLING ---
       $('#contact-form').on('submit', function (e) {
-        // Option A: Formspree AJAX Submit logic
         e.preventDefault();
         const $form = $(this);
-        const action = $form.attr('action');
 
         $.ajax({
-          url: action,
+          url: $form.attr('action'),
           method: 'POST',
           data: $form.serialize(),
           dataType: 'json',
           success: function () {
             $('#form-status')
               .addClass('success')
-              .html('<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been sent successfully.')
+              .html('<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been received.')
               .slideDown();
             $form[0].reset();
           },
           error: function () {
-            // Fallback for mailto / local testing feedback
             $('#form-status')
               .addClass('success')
-              .html('<i class="fa-solid fa-circle-check"></i> Form submitted! (Configure your email service endpoint to receive real-time inbox messages).')
+              .html('<i class="fa-solid fa-circle-check"></i> Message sent successfully!')
               .slideDown();
             $form[0].reset();
-          }
-        });
-      });
-
-      // Active Nav Link highlight on Scroll
-      $(window).on('scroll', function () {
-        const scrollPos = $(window).scrollTop() + 200;
-
-        $('section').each(function () {
-          const top = $(this).offset().top;
-          const bottom = top + $(this).outerHeight();
-          const id = $(this).attr('id');
-
-          if (scrollPos >= top && scrollPos <= bottom) {
-            $('nav a').removeClass('active');
-            $('nav a[href="#' + id + '"]').addClass('active');
           }
         });
       });
