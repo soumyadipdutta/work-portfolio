@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer & Designer Portfolio</title>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- jQuery Library -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    /* --- CSS VARIABLES & BASE RESET --- */
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: #111827;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-cyan: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-pink: #f472b6;
+      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-code: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- NAVIGATION --- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 8%;
+      background: rgba(9, 13, 22, 0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .logo span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent-cyan);
+    }
+
+    /* --- HERO BANNER WITH CANVAS ANIMATION --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #particles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.25;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .glow-1 {
+      background: var(--accent-cyan);
+      top: 15%;
+      left: 20%;
+      animation: pulseGlow 8s infinite alternate ease-in-out;
+    }
+
+    .glow-2 {
+      background: var(--accent-purple);
+      bottom: 15%;
+      right: 20%;
+      animation: pulseGlow 10s infinite alternate-reverse ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+      100% { transform: scale(1.2) translate(-30px, 30px); opacity: 0.35; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.08);
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      margin-bottom: 2rem;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+    }
+
+    .hero-badge i {
+      font-size: 0.75rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .animated-gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .cursor {
+      color: var(--accent-cyan);
+      font-weight: 300;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+    }
+
+    /* --- BUTTONS --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #0f172a;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* --- ABOUT SECTION (MODIFICATION 1: IMAGE ON LEFT) --- */
+    .about-section {
+      padding: 7rem 8%;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(17, 24, 39, 0.5) 100%);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    /* Left Image Styling */
+    .about-image-wrapper {
+      position: relative;
+    }
+
+    .about-image-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -15px;
+      background: var(--accent-gradient);
+      border-radius: 24px;
+      opacity: 0.2;
+      filter: blur(20px);
+      z-index: 0;
+    }
+
+    .about-image-card {
+      position: relative;
+      z-index: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-image-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      filter: grayscale(15%);
+      transition: filter 0.5s ease;
+    }
+
+    .about-image-card:hover img {
+      filter: grayscale(0%);
+    }
+
+    .experience-badge {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      background: rgba(17, 24, 39, 0.95);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .experience-badge h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      line-height: 1;
+    }
+
+    .experience-badge p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    /* Right Bio Details */
+    .about-text .tag-label {
+      color: var(--accent-cyan);
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .skill-chip {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-chip i {
+      color: var(--accent-cyan);
+    }
+
+    /* --- PORTFOLIO SECTION --- */
+    .portfolio-section {
+      padding: 7rem 8%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header .tag-label {
+      color: var(--accent-cyan);
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-image {
+      height: 230px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .card-image img {
+      transform: scale(1.05);
+    }
+
+    .card-info {
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .tag-pill {
+      align-self: flex-start;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .card-info h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .btn-details {
+      background: none;
+      border: none;
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      padding: 0;
+      transition: gap 0.3s ease;
+    }
+
+    .project-card:hover .btn-details {
+      gap: 0.8rem;
+    }
+
+    /* --- CONTACT SECTION (MODIFICATION 2) --- */
+    .contact-section {
+      padding: 7rem 8%;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.5) 0%, var(--bg-dark) 100%);
+      border-top: 1px solid var(--card-border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .info-details h4 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-details p {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    /* Contact Form Styling */
+    .contact-form-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 0.9rem 1.2rem;
+      color: var(--text-main);
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-status {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      display: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+    }
+
+    .form-status.success {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+    }
+
+    /* --- PORTFOLIO DETAIL MODAL --- */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 13, 22, 0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      width: 100%;
+      max-width: 900px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      padding: 3rem;
+    }
+
+    .modal-image-container img {
+      width: 100%;
+      height: 100%;
+      max-height: 350px;
+      border-radius: 14px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-details h2 {
+      font-size: 1.8rem;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .modal-details p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-group {
+      margin-top: 1.25rem;
+    }
+
+    .meta-group h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .meta-group p {
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      padding: 2.5rem 8%;
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* --- RESPONSIVE STYLES --- */
+    @media (max-width: 992px) {
+      .about-grid, .contact-grid, .modal-body {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-image-card img {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav { display: none; } /* Could be upgraded to mobile menu */
+      .hero h1 { font-size: 2rem; }
+      .hero-btns { flex-direction: column; }
+      .modal-body { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <a href="#hero" class="logo">PORTFOLIO<span>.</span></a>
+    <nav>
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO BANNER SECTION (MODIFICATION 3: ENHANCED ANIMATION) -->
+  <section id="hero" class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-circle"></i> Available for New Projects
+      </div>
+      <h1>Building Modern Web Applications <br>
+        <span class="animated-gradient-text" id="typewriter"></span><span class="cursor">|</span>
+      </h1>
+      <p>Clean code architecture, responsive interfaces, and interactive digital solutions built with precision.</p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View Projects</a>
+        <a href="#contact" class="btn btn-secondary"><i class="fa-envelope fa-regular"></i> Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION (MODIFICATION 1: IMAGE ON LEFT SIDE) -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        
+        <!-- Left Image Card -->
+        <div class="about-image-wrapper">
+          <div class="about-image-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Developer Profile">
+            <div class="experience-badge">
+              <h3>5+</h3>
+              <p>Years of Development<br>Experience</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Text / Bio -->
+        <div class="about-text">
+          <span class="tag-label">// ABOUT ME</span>
+          <h2>Crafting Digital Experiences That Work</h2>
+          <p>
+            Hello! I am a passionate Web Developer & UI Designer dedicated to turning complex problems into elegant, user-friendly digital solutions. I specialize in building custom, high-performing websites using modern HTML5, CSS3, JavaScript, jQuery, and custom frontend frameworks.
+          </p>
+          <p>
+            Whether designing interactive client portals or optimizing web performance, my core goal is always the same: delivering clean code, intuitive workflows, and pixel-perfect design across all device screen sizes.
+          </p>
+
+          <div class="skills-grid">
+            <div class="skill-chip"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
+            <div class="skill-chip"><i class="fa-brands fa-js"></i> JavaScript & jQuery</div>
+            <div class="skill-chip"><i class="fa-solid fa-mobile-screen"></i> Responsive UI Design</div>
+            <div class="skill-chip"><i class="fa-solid fa-rocket"></i> Web Optimization</div>
+            <div class="skill-chip"><i class="fa-brands fa-github"></i> Git & Version Control</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag-label">// FEATURED WORK</span>
+        <h2>Selected Projects</h2>
+      </div>
+
+      <div class="portfolio-grid">
+        
+        <!-- Project 1 -->
+        <article class="project-card" 
+                 data-title="Ballast Advisors Website"
+                 data-category="Financial Services / Web Development"
+                 data-url="https://www.ballastadvisors.com"
+                 data-tech="HTML5, Modern CSS3, JavaScript, jQuery, Custom CMS"
+                 data-description="A clean, highly accessible corporate website built for a financial advisory firm. Focused on brand credibility, custom responsive layouts, and smooth dynamic navigation."
+                 data-image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Ballast Advisors">
+          </div>
+          <div class="card-info">
+            <span class="tag-pill">Corporate & Finance</span>
+            <h3>Ballast Advisors Website</h3>
+            <p>Clean financial services platform optimized for performance, trust, and readability.</p>
+            <button class="btn-details">View Details <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" 
+                 data-title="Zzesto Brand Experience"
+                 data-category="E-Commerce / Frontend Design"
+                 data-url="https://www.zzesto.com"
+                 data-tech="HTML5, CSS Grid, jQuery Interactions, Responsive Design"
+                 data-description="An engaging online storefront featuring custom UI card grids, dynamic product detail popups, and fluid mobile UX navigation."
+                 data-image="https://images.unsplash.com/photo-1556742049-0a670f4a4591?q=80&w=1000&auto=format&fit=crop">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?q=80&w=1000&auto=format&fit=crop" alt="Zzesto Brand Experience">
+          </div>
+          <div class="card-info">
+            <span class="tag-pill">E-Commerce UI</span>
+            <h3>Zzesto Brand Experience</h3>
+            <p>Interactive storefront design showcasing custom product view galleries and layouts.</p>
+            <button class="btn-details">View Details <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" 
+                 data-title="Apex Analytics Dashboard"
+                 data-category="Web App / Data Visualization"
+                 data-url="https://example.com/apex"
+                 data-tech="HTML5, Sass, jQuery AJAX, Chart.js Integration"
+                 data-description="A modern dark-mode admin interface with real-time statistics cards, data filtering options, and lightweight DOM updates."
+                 data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Apex Dashboard">
+          </div>
+          <div class="card-info">
+            <span class="tag-pill">Web Application</span>
+            <h3>Apex Analytics Dashboard</h3>
+            <p>Sleek dark-themed reporting portal with responsive data visuals and cards.</p>
+            <button class="btn-details">View Details <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US SECTION (MODIFICATION 2) -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <span class="tag-label" style="color: var(--accent-cyan); font-family: var(--font-code); font-size: 0.9rem;">// GET IN TOUCH</span>
+          <h2>Let's Build Something Together</h2>
+          <p>Have a project in mind, need a consultation, or want to discuss a full-time role? Send a message and let's start talking.</p>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="info-details">
+              <h4>Email Me Directly</h4>
+              <p>soumyadipdutta8@email.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="info-details">
+              <h4>Location</h4>
+              <p>Available Worldwide (Remote)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <!-- Note: Replace "yourname@email.com" in action attribute with your Formspree/Web3Forms endpoint or direct mailto -->
+          <form id="contact-form" action="soumyadipdutta8@gmail.com" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" placeholder="Web Development Inquiry" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+
+            <div id="form-status" class="form-status"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DYNAMIC PROJECT DETAILS MODAL -->
+  <div id="project-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modal-img" src="" alt="Project Preview">
+        </div>
+        <div class="modal-details">
+          <span id="modal-category" class="tag-pill">Category</span>
+          <h2 id="modal-title">Project Title</h2>
+          <p id="modal-description">Project description goes here...</p>
+          
+          <div class="meta-group">
+            <h4>Technologies Used</h4>
+            <p id="modal-tech">Tech Stack</p>
+          </div>
+
+          <div class="meta-group" style="margin-top: 2rem;">
+            <a id="modal-url" href="#" target="_blank" class="btn btn-primary">
+              Visit Live Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Developer Portfolio. Built with HTML, CSS & jQuery.</p>
+  </footer>
+
+  <!-- JQUERY & CUSTOM ANIMATION LOGIC -->
+  <script>
+    $(document).ready(function () {
+
+      // --- 1. TYPEWRITER ANIMATION (HERO BANNER) ---
+      const phrases = ["Interactive User Interfaces.", "Responsive CSS Layouts.", "Clean & Maintainable Code."];
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const $typewriter = $('#typewriter');
+
+      function typeEffect() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+          $typewriter.text(currentPhrase.substring(0, charIndex - 1));
+          charIndex--;
+        } else {
+          $typewriter.text(currentPhrase.substring(0, charIndex + 1));
+          charIndex++;
+        }
+
+        let speed = isDeleting ? 40 : 90;
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+          speed = 2000; // Pause at full word
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          speed = 300;
+        }
+
+        setTimeout(typeEffect, speed);
+      }
+
+      typeEffect();
+
+
+      // --- 2. CANVAS PARTICLE NETWORK ANIMATION (HERO BANNER) ---
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      $(window).on('resize', resizeCanvas);
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.6;
+          this.vy = (Math.random() - 0.5) * 0.6;
+          this.radius = Math.random() * 1.8 + 1;
+          this.alpha = Math.random() * 0.4 + 0.2;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(56, 189, 248, ${this.alpha})`;
+          ctx.fill();
+        }
+      }
+
+      // Populate Particles
+      const particleCount = Math.min(Math.floor(window.innerWidth / 20), 60);
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw and Connect Particles
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(129, 140, 248, ${0.15 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+
+      // --- 3. DYNAMIC PROJECT MODAL ---
+      $('.project-card').on('click', function () {
+        const $card = $(this);
+
+        $('#modal-title').text($card.data('title'));
+        $('#modal-category').text($card.data('category'));
+        $('#modal-description').text($card.data('description'));
+        $('#modal-tech').text($card.data('tech'));
+        $('#modal-url').attr('href', $card.data('url'));
+        $('#modal-img').attr('src', $card.data('image'));
+
+        $('#project-modal').fadeIn(250).css('display', 'flex');
+        $('body').css('overflow', 'hidden');
+      });
+
+      $('.modal-close, .modal-overlay').on('click', function (e) {
+        if ($(e.target).hasClass('modal-overlay') || $(e.target).hasClass('modal-close')) {
+          $('#project-modal').fadeOut(200);
+          $('body').css('overflow', 'auto');
+        }
+      });
+
+      $(document).keyup(function(e) {
+        if (e.key === "Escape") {
+          $('#project-modal').fadeOut(200);
+          $('body').css('overflow', 'auto');
+        }
+      });
+
+
+      // --- 4. CONTACT FORM HANDLING & SMOOTH SCROLL ---
+      $('#contact-form').on('submit', function (e) {
+        // Option A: Formspree AJAX Submit logic
+        e.preventDefault();
+        const $form = $(this);
+        const action = $form.attr('action');
+
+        $.ajax({
+          url: action,
+          method: 'POST',
+          data: $form.serialize(),
+          dataType: 'json',
+          success: function () {
+            $('#form-status')
+              .addClass('success')
+              .html('<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been sent successfully.')
+              .slideDown();
+            $form[0].reset();
+          },
+          error: function () {
+            // Fallback for mailto / local testing feedback
+            $('#form-status')
+              .addClass('success')
+              .html('<i class="fa-solid fa-circle-check"></i> Form submitted! (Configure your email service endpoint to receive real-time inbox messages).')
+              .slideDown();
+            $form[0].reset();
+          }
+        });
+      });
+
+      // Active Nav Link highlight on Scroll
+      $(window).on('scroll', function () {
+        const scrollPos = $(window).scrollTop() + 200;
+
+        $('section').each(function () {
+          const top = $(this).offset().top;
+          const bottom = top + $(this).outerHeight();
+          const id = $(this).attr('id');
+
+          if (scrollPos >= top && scrollPos <= bottom) {
+            $('nav a').removeClass('active');
+            $('nav a[href="#' + id + '"]').addClass('active');
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>
